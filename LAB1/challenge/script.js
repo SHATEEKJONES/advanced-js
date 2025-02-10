@@ -135,32 +135,68 @@ console.log(shortenString("Supercalifr"))
 let burger = 5.00;
 let fries = 3.00;
 let soda = 1.00;
-let budget = parseInt(prompt("How much money u got"))
+let budget = parseInt(prompt("How much money u got: "))
 
 // 15. Write a function buyBurgers(budget) that takes in a budget amount and returns the number of burgers that can be bought.
 // Prompt the user for their budget and call the function.
 /// If no burgers, fries, and sodas can be bought, return "Sorry, no burgers for you."
 
 const buyBurgers = (budget) => {
-    
+    return budget / burger;
 }
+
+console.log(buyBurgers(budget))
 
 // 16. A meal consists of 1 burger, 1 fry, and 1 soda.
 /// Write a function called buyMeals(budget) that tells the user how many meals they can buy and how much money they will have left over.
 // Prompt the user for their budget and call the function.
 /// Bonus: Round the answer to the nearest penny.
 const buyMeals = (budget) => {
-
+    let meal = burger + fries + soda;
+    let amtcanbuy = Math.floor(budget / meal);
+    console.log(budget % meal);
+    return amtcanbuy;
 }
+
+console.log(buyMeals(budget))
 
 
 // 17. [Challenge] Write a function missingLeg(side1, side2) that takes in the length of a hypotenuse and a leg of a right triangle and prints out the missing leg's length
 // Prompt the user for the two sides and call the function
 /// The larger side should be the hypotenuse  
+let side1 = parseInt(prompt("Length of side 1: "))
+
+let side2 = parseInt(prompt("Length of side 2: "))
 
 
+const missingLeg = (side1, side2) => {
+    let hypotenuseSquared = side1 ** 2;
+    let legSquared = side2 ** 2;
+    let missingLegSquared = hypotenuseSquared - legSquared;
+
+    if (missingLegSquared < 0) {
+        console.log("The values provided do not form a right triangle.");
+        return;
+    }
+
+    let missingLegLength = Math.sqrt(missingLegSquared);
+    return `The length of the missing leg is: ${missingLegLength}`;
+};
+
+console.log(missingLeg(side1, side2));
 
 // 18. [Super Challenge] In math, Factorial is the product of an integer and all the integers below it.
 /// For example: factorial(3) = 3*2*1 = 6 ---  factorial(5) = 5*4*3*2*1 = 120
 /// Write a function factorial(x) that finds the factorial of any integer.
 // Prompt the user for a number and call the function
+let num = parseInt(prompt("Number to factorial: "))
+let total = 0;
+
+const factorial = x => {
+    for(i = 0; i < x; i++){
+        x--;
+        console.log(x);
+    }
+}
+
+console.log(factorial(num))
